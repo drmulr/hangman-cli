@@ -1,0 +1,22 @@
+{
+  "name": "hangman-cli",
+  "version": "1.0.0",
+  "description": "Hangman game played via CLI",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drmulr/hangman-cli.git"
+  },
+  "author": "Daniel Muller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drmulr/hangman-cli/issues"
+  },
+  "homepage": "https://github.com/drmulr/hangman-cli#readme",
+  "dependencies": {
+    "inquirer": "^3.3.0"
+  }
+}
