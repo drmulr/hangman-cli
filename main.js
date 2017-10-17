@@ -26,7 +26,6 @@ function startGame() {
     //Working with the word, need split and count.
     numLetters = theWord.split("");
     numBlanks = numLetters.length;
-    console.log("NumBlanks: " + numBlanks);
     //Need blanks depending how long random word is:    
     for (var i = 0; i < numBlanks; i++){
         totalBlankArr.push("_");
@@ -39,28 +38,34 @@ function checkGuess(let) {
     var letInWord = false;
     //Is the user's guess anywhere in theWord?
     for (var i = 0; i < numBlanks; i++) {
-        if (theWord[i] === letter) {
+        //If guess is anywhere in the word, change letInWord to true.
+        if (theWord[i] === let) {
             letInWord = true;
         }
     }
-    //If the letter is indeed in the word:
+    //If the letter is indeed in the word as indicated above:
     if (letInWord) {
-        // Loop through the word.
+        //Loop through the word.
         for (var j = 0; j < numBlanks; j++) {
-            //Put guess
+            //Push to total blank array at index of theWord where = user choice:
             if (theWord[j] === let) {
-                // Here we set the specific space in blanks and letter equal to the letter when there is a match.
-                totalBlankArr[j] = letter;
+                totalBlankArr[j] = let;
             }
         }
-        // Logging for testing.
-        console.log(totalBlankArr);
+        
+        numGuesses--;
+        console.log(totalBlankArr.join(" "));
+        console.log("-------------------------------------");
     }
-    // If the letter doesn't exist at all...
+    //If the letter is not in the random word::
     else {
-        // ..then we add the letter to the list of wrong letters, and we subtract one of the guesses.
+        //..then we add the letter to the list of wrong letters, and we subtract one of the remaining guesses.
         wrongGuessesArr.push(let);
         numGuesses--;
+        console.log("-------------------------------------\n")
+        console.log("Sorry, bad guess.");
+        console.log("Incorrect guesses: " + wrongGuessesArr + "\n");
+        console.log("-------------------------------------")
     }
 }
 
