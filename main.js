@@ -9,7 +9,7 @@ var Word = require("./word.js");
 //variables:
 var wrongGuessesArr = [];
 var totalBlankArr = [];
-var numGuesses = 5;
+var numGuesses = 9;
 var theWord = "";
 
 
@@ -21,8 +21,9 @@ function startGame() {
     wrongGuessesArr = [];
     totalBlankArr = [];
     
-    console.log("\n\nLet's Play Hangman!\n\n")
-    console.log("Random word you're supposed to guess: " + theWord);
+    console.log("\n\nLet's Play Hangman!\n");
+    console.log("Guess a letter:\n")
+    // console.log("FOR TESTING----Random word you're supposed to guess: " + theWord);
     //Working with the word, need split and count.
     numLetters = theWord.split("");
     numBlanks = numLetters.length;
@@ -59,12 +60,15 @@ function checkGuess(let) {
     }
     //If the letter is not in the random word::
     else {
+        console.log("-------------------------------------\n\n")
+        console.log("\n\nGuess letter:\n")
+        console.log(totalBlankArr.join(" "));
         //..then we add the letter to the list of wrong letters, and we subtract one of the remaining guesses.
         wrongGuessesArr.push(let);
         numGuesses--;
-        console.log("-------------------------------------\n")
-        console.log("Sorry, bad guess.");
-        console.log("Incorrect guesses: " + wrongGuessesArr + "\n");
+        
+        console.log("Sorry, nope.");
+        console.log("Incorrect guesses: " + wrongGuessesArr);
         console.log("-------------------------------------")
     }
 }
