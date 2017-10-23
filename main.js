@@ -41,7 +41,6 @@ function startGame() {
     console.log(totalBlankArr.join(" ") + "\n");
 }
 
-
 //LETTER VALIDATION (coming soon):
 // function alphanumeric(let)  
 // {  
@@ -56,7 +55,6 @@ function startGame() {
 //    return false;   
 //   }  
 //   } 
-
 
 function checkGuess(let) {
     var letInWord = false;
@@ -76,15 +74,13 @@ function checkGuess(let) {
                 totalBlankArr[j] = let;
             }
         }
-
-        numGuesses--;
         console.log(totalBlankArr.join(" "));
         console.log("-------------------------------------");
     }
     //If the letter is not in the random word::
     else {
-        console.log("-------------------------------------\n\n")
-        console.log("\n\nGuess letter:\n")
+        console.log("-------------------------------------\n")
+        console.log("\nGuess letter:\n")
         console.log(totalBlankArr.join(" ") + "\n");
         //..then we add the letter to the list of wrong letters, and we subtract one of the remaining guesses.
         wrongGuessesArr.push(let);
@@ -92,7 +88,7 @@ function checkGuess(let) {
 
         console.log("Sorry, nope.");
         console.log("Incorrect guesses: " + wrongGuessesArr);
-        console.log("-------------------------------------")
+        console.log("-------------------------------------");
     }
 }
 
@@ -106,15 +102,15 @@ function playGame() {
             name: "letterGuess",
             message: "Guess a letter: "
         }]).then(function (answers) {
-
             checkGuess(answers.letterGuess);
             console.log("totalblankArr: " + totalBlankArr.join(""));
             console.log("the word: " + theWord);
-
             if (totalBlankArr.join("") == theWord) {
-
+                console.log("Game over.")
                 console.log("You win!");
-            }
+                startGame();
+
+            } 
             // if (answers.letterGuess == theLetter) {
             //     console.log("\nYOU WIN!\n");
             // } else {
@@ -135,9 +131,13 @@ function playGame() {
     }
 }
 
-function printStats() {
+function endGame() {
     //NEED THIS LIKELY AFTER GAME COMPLETION OR AFTER EACH GUESS
+
+
+
 }
+
 
 startGame();
 playGame();
