@@ -5,7 +5,7 @@ var Random = require("./game.js");
 var inquirer = require("inquirer");
 
 //-------------------------------------------------------
-var wordArray = ["sample", "computer", "homework", "downtown", "browser"];
+var wordArray = ["debugger", "firebase", "javascript", "chrome", "node"];
 
 
 
