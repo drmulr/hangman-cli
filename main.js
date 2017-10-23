@@ -14,7 +14,7 @@ var theWord = "";
 
 // NEXT STEPS: 
 //     LETTER VALIDATION
-//     WINNER ANNOUNCEMENT IF ALL LETTERS GUESSED
+//     WINNER ANNOUNCEMENT IF ALL LETTERS GUESSED (DONE)
 //     ABILITY TO VISUALIZE BLANKS IN WORD
 
 
@@ -92,7 +92,6 @@ function checkGuess(let) {
     }
 }
 
-
 function playGame() {
     if (numGuesses > 0) {
         // -----------
@@ -103,8 +102,8 @@ function playGame() {
             message: "Guess a letter: "
         }]).then(function (answers) {
             checkGuess(answers.letterGuess);
-            console.log("totalblankArr: " + totalBlankArr.join(""));
-            console.log("the word: " + theWord);
+            // console.log("totalblankArr: " + totalBlankArr.join(""));
+            // console.log("the word: " + theWord);
             if (totalBlankArr.join("") == theWord) {
                 console.log("Game over.")
                 console.log("You win!");
@@ -118,16 +117,16 @@ function playGame() {
             //     guessesArr.push(answers.letterGuess);
             //     console.log("\nGuesses remaining: " + numGuesses);
             //     console.log("Your guesses: " + guessesArr + "\n");
-
             // }
             // var newLetter = new Letter(answers.letterGuess);
             console.log("Guesses remainin: " + numGuesses);
             playGame();
         })
-
     } else {
         //NEED PUT END OF GAME FUNCTION HERE
         console.log("Out of guesses. Game over.\n\n");
+        startGame();
+        playGame();
     }
 }
 
