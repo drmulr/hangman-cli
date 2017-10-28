@@ -18,6 +18,6 @@ var Letter = function(let){
 module.exports = Letter;
 
 
-var testing = new Letter();
+//var testing = new Letter();
 
 
